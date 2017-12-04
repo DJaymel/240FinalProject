@@ -31,16 +31,21 @@ World::World(int width, int height) {
 void World::drawGrid() {
     int height = board.size();
     int width = board[0].size();
+
     for (int i = 0; i < height; i++) {
+        // Print top border for the row
         for (int k = 0; k < width; k++) {
             cout << "+---";
         }
         cout << "+" << endl << "| ";
+        // Print each value in the row
         for (int j = 0; j < width; j++) {
             cout << board[i][j] << " | ";
         }
         cout << endl;
     }
+
+    // Print bottom border for the grid
     for (int k = 0; k < width; k++) {
         cout << "+---";
     }
