@@ -29,10 +29,20 @@ World::World(int width, int height) {
 }
 
 void World::drawGrid() {
-    for (int i = 0; i < board.size(); i++) {
-        for (int j = 0; j < board[i].size(); j++) {
-            cout << board[i][j] << " ";
+    int height = board.size();
+    int width = board[0].size();
+    for (int i = 0; i < height; i++) {
+        for (int k = 0; k < width; k++) {
+            cout << "+---";
+        }
+        cout << "+" << endl << "| ";
+        for (int j = 0; j < width; j++) {
+            cout << board[i][j] << " | ";
         }
         cout << endl;
     }
+    for (int k = 0; k < width; k++) {
+        cout << "+---";
+    }
+    cout << "+" << endl;
 }
