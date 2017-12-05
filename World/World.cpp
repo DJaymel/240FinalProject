@@ -18,20 +18,32 @@ using namespace std;
 
 World::World() : World(8, 8){}
 
-World::World(int width, int height) {
+World::World(int _width, int _height) {
+    height = _height;
+    width = _width;
+
     board.resize(height);
     for (int i = 0; i < height; i++) {
         board[i].resize(width);
         for (int j = 0; j < width; j++) {
-            board[i][j] = 'H';
+            board[i][j] = ' ';
         }
     }
 }
 
-void World::drawGrid() {
-    int height = board.size();
-    int width = board[0].size();
+void World::init() {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            double r = (double) rand() / RAND_MAX;
+            if(r < 0.50) {
+                board[i][j] = 'H';
+            }
+        }
+    }
+    board[rand() % height][rand() % width] = 'Z';
+}
 
+void World::drawGrid() {
     for (int i = 0; i < height; i++) {
         // Print top border for the row
         for (int k = 0; k < width; k++) {

@@ -24,10 +24,13 @@ class World {
 public:
     World();
     World(int, int);
+    void init();
     void drawGrid();
     void update();
 
 private:
+    int width;
+    int height;
     vector< vector<char> > board;
     vector<Human> humans;
     vector<Zombie> zombies;
