@@ -21,7 +21,7 @@ int main() {
     //srand(time(NULL));
 
     World world;
-    // world.init();
+     world.init();
 
     int day = 1;
     while(true) {
