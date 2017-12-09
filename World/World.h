@@ -1,19 +1,20 @@
 /***************************************************************************
- * Name: Michael Afrin & Jaymel Dash                                       *
- * Email: mafrin@email.sc.edu | jwdash@email.sc.edu                        *
- * Date: 12/4/2017                                                         *
+ * Name: Michael Afrin & Jaymel Dash                                                                                     *
+ * Email: mafrin@email.sc.edu | jwdash@email.sc.edu                                                             *
+ * Date: 12/4/2017                                                                                                                       *
  * Function:
  * Input:
  * Output:
  * Additional Comments:
- *                                                                         * 
- * Copyright (C) 2017 by Michael Afrin & Jaymel Dash                       *
+ *                                                                                                                                                  *
+ * Copyright (C) 2017 by Michael Afrin & Jaymel Dash                                                           *
  ***************************************************************************/
 
 #ifndef FINALPROJECT_WORLD_H
 #define FINALPROJECT_WORLD_H
 
 #include <vector>
+#include <stdlib.h>
 
 #include "../Human/Human.h"
 #include "../Zombie/Zombie.h"
