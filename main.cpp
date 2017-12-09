@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <ctime>
 
-#include "World/World.cpp"
+#include "World/World.h"
 
 int main() {
     // Sets the c++ random seed to the current time. Ensures random generates different numbers for each execution

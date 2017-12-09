@@ -15,8 +15,8 @@
 
 using namespace std;
 
-/*Human(int x, int y){
+Human(int x, int y){
     cout << "H" << endl;
-}*/
+}
 
 //void
