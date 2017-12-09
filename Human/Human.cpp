@@ -14,3 +14,9 @@
 #include "Human.h"
 
 using namespace std;
+
+/*Human(int x, int y){
+    cout << "H" << endl;
+}*/
+
+//void

@@ -17,16 +17,17 @@
 class Human {
 public:
     // Human();
-    Human(int, int);
     // ~Human();
+    Human(int, int);
+//    bool humanOrZombie(int,int);
+//    void move(int col, int row);
+
 
 private:
     int row;
     int col;
 };
 
-// bool humanOrZombie;
-// void move(int col, int row);
 
 
 #endif //FINALPROJECT_HUMAN_H

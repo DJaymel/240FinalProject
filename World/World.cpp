@@ -17,9 +17,7 @@
 
 using namespace std;
 
-World::World() {
-  World(8, 8);
-}
+World::World() : World(8, 8){}
 
 World::World(int _width, int _height) {
     height = _height;
