@@ -10,8 +10,10 @@
  * Copyright (C) 2017 by Michael Afrin & Jaymel Dash                                                           *
  ***************************************************************************/
 
-#include "World.h"
-#include "Human.h"
+#include <iostream>
+
+#include "../World/World.h"
+#include "../Human/Human.h"
 
 using namespace std;
 
