@@ -27,7 +27,8 @@ public:
     World(int, int);
     void init();
     void drawGrid();
-    void update();
+    void update(bool);
+    bool gameOver();
 
 private:
     int width;

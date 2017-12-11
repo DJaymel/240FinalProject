@@ -11,3 +11,6 @@
  ***************************************************************************/
 
 #include "Zombie.h"
+
+Zombie::Zombie(int _col, int _row) : Human(_col, _row) {
+}

@@ -38,10 +38,16 @@ void World::init() {
             double r = (double) rand() / RAND_MAX;
             if(r < 0.50) {
                 board[i][j] = 'H';
+                Human human(j, i);
+                humans.push_back(human);
             }
         }
     }
-    board[rand() % height][rand() % width] = 'Z';
+    int rY = rand() % height;
+    int rX = rand() % width;
+    board[rY][rX] = 'Z';
+    Zombie zombie(rX, rY);
+    zombies.push_back(zombie);
 }
 
 void World::drawGrid() {
@@ -63,4 +69,76 @@ void World::drawGrid() {
         cout << "+---";
     }
     cout << "+" << endl;
+}
+
+void World::update(bool debug) {
+    // Looping through vector backwards, to prevent skipping if a index is erased mid loop
+    for(int i = zombies.size()-1; i >= 0; i--) {
+        Zombie & zombie = zombies.at(i);
+        int r = rand() % 4;
+        int col = zombie.getCol();
+        int row = zombie.getRow();
+
+        if(r == 0) col += 1;
+        else if(r == 1) row += 1;
+        else if(r == 2) col -= 1;
+        else if(r == 3) row -= 1;
+
+        // If move is off the board, continue to next human
+        if(col < 0 || col >= board.size() || row < 0 || row >= board.size()) continue;
+        char type = board[row][col];
+        if(type == ' ') {
+            if(debug) cout << "Zombie moving from (" << zombie.getRow() << ", " << zombie.getCol() << ") to (" << row << ", " << col << ")" << endl;
+            board[zombie.getRow()][zombie.getCol()] = ' ';
+            board[row][col] = 'Z';
+            zombie.move(col, row);
+        }
+        else if (type == 'H') {
+            if(debug) cout << "Human turning into zombie at (" << row << ", " << col << ")" << endl;
+            board[row][col] = 'Z';
+            Zombie zombie(col, row);
+            zombies.push_back(zombie);
+            for(int j = 0; j < humans.size(); j++) {
+                Human human = humans.at(j);
+                if(human.getRow() == row && human.getCol() == col) {
+                    humans.erase(humans.begin() + j);
+                    break;
+                }
+            }
+        }
+    }
+
+    for(int i = humans.size()-1; i >= 0; i--) {
+        Human & human = humans.at(i);
+        int r = rand() % 4;
+        int col = human.getCol();
+        int row = human.getRow();
+
+        if(r == 0) col += 1;
+        else if(r == 1) row += 1;
+        else if(r == 2) col -= 1;
+        else if(r == 3) row -= 1;
+
+        //cout << "Was (" << human.getCol() << ", " << human.getRow() << "), now is (" << col << ", " << row << ")" << endl;
+        // If move is off the board, continue to next human
+        if(col < 0 || col >= board.size() || row < 0 || row >= board.size()) continue;
+        char type = board[row][col];
+        if(type == ' ') {
+            if(debug) cout << "Human moving from (" << human.getRow() << ", " << human.getCol() << ") to (" << row << ", " << col << ")" << endl;
+            board[human.getRow()][human.getCol()] = ' ';
+            board[row][col] = 'H';
+            human.move(col, row);
+        }
+        else if (type == 'Z') {
+            if(debug) cout << "Human turning to zombie at (" << human.getRow() << ", " << human.getCol() << ")" << endl;
+            board[human.getRow()][human.getCol()] = 'Z';
+            Zombie zombie(human.getCol(), human.getRow());
+            zombies.push_back(zombie);
+            humans.erase(humans.begin()+i);
+        }
+    }
+}
+
+bool World::gameOver() {
+    return humans.empty();
 }

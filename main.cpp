@@ -18,7 +18,7 @@
 
 int main() {
     // Sets the c++ random seed to the current time. Ensures random generates different numbers for each execution
-    //srand(time(NULL));
+    srand(time(NULL));
 
     World world;
     world.init();
@@ -27,12 +27,18 @@ int main() {
     while(true) {
         cout << "Day " << day++ << endl;
         world.drawGrid();
-
-        cout << "Press Enter to Continue. Type 'q' and Press Enter to Quit" << endl;
+        if(world.gameOver()) {
+            cout << "GAME OVER. ALL HUMANS ARE DEAD." << endl;
+            exit(0);
+        }
+        cout << "Type 'c' and Press Enter to Continue. Type 'q' and Press Enter to Quit" << endl;
         char ans;
-        cin.get(ans);
+        cin >> ans;
         if(ans == 'q') {
             break;
+        } else if (ans == 'c') {
+            // Update method takes in a bool which when true, will print debug statements
+            world.update(false);
         }
     }
 

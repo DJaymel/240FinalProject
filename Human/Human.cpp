@@ -17,8 +17,24 @@
 
 using namespace std;
 
-Human(int x, int y){
-    cout << "H" << endl;
+Human::Human() {}
+
+Human::Human(int _col, int _row){
+    col = _col;
+    row = _row;
 }
 
-//void
+int Human::getRow() {
+    return row;
+}
+
+int Human::getCol() {
+    return col;
+}
+
+void Human::move(int _col, int _row) {
+    col = _col;
+    row = _row;
+}
+
+

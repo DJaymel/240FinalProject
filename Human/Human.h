@@ -16,11 +16,12 @@
 
 class Human {
 public:
-    // Human();
-    // ~Human();
+    Human();
+    //~Human();
     Human(int, int);
-//    bool humanOrZombie(int,int);
-//    void move(int col, int row);
+    void move(int, int);
+    int getRow();
+    int getCol();
 
 
 private:
