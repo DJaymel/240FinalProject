@@ -131,9 +131,9 @@ void World::update(bool debug) {
         }
         else if (type == 'Z') {
             if(debug) cout << "Human turning to zombie at (" << human.getRow() << ", " << human.getCol() << ")" << endl;
-            board[human.getRow()][human.getCol()] = 'Z';
+            board[human.getRow()][human.getCol()] = ' ';
             Zombie zombie(human.getCol(), human.getRow());
-            zombies.push_back(zombie);
+            humans.push_back(human);
             humans.erase(humans.begin()+i);
         }
     }
