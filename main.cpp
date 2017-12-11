@@ -24,22 +24,17 @@ int main() {
     world.init();
 
     int day = 1;
-    while(true) {
+    char ans;
+    cout << "Press Enter to Start" << endl;
+    while(cin.get(ans) && ans != 'q') {
         cout << "Day " << day++ << endl;
         world.drawGrid();
         if(world.gameOver()) {
             cout << "GAME OVER. ALL HUMANS ARE DEAD." << endl;
             exit(0);
         }
-        cout << "Type 'c' and Press Enter to Continue. Type 'q' and Press Enter to Quit" << endl;
-        char ans;
-        cin >> ans;
-        if(ans == 'q') {
-            break;
-        } else if (ans == 'c') {
-            // Update method takes in a bool which when true, will print debug statements
-            world.update(false);
-        }
+        cout << "Press Enter to Continue. Type 'q' and Press Enter to Quit" << endl;
+        world.update(false);
     }
 
     return 0;
