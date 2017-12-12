@@ -20,8 +20,10 @@ public:
     //~Human();
     Human(int, int);
     void move(int, int);
+    char generateRandomMove();
     int getRow();
     int getCol();
+    virtual bool isLegalMove(char);
 
 
 private:

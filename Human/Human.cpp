@@ -37,4 +37,17 @@ void Human::move(int _col, int _row) {
     row = _row;
 }
 
+char Human::generateRandomMove() {
+    int r = rand() % 4;
+
+    if(r == 0) return 'R';
+    else if(r == 1) return 'D';
+    else if(r == 2) return 'L';
+    else if(r == 3) return 'U';
+}
+
+bool Human::isLegalMove(char moveChar) {
+    return moveChar == 'Z' || moveChar == ' ';
+}
+
 

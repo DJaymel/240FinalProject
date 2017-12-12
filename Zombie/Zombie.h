@@ -18,6 +18,7 @@
 class Zombie : public Human{
 public:
     Zombie(int, int);
+    bool isLegalMove(char);
 };
 
 

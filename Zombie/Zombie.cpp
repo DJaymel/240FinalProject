@@ -14,3 +14,7 @@
 
 Zombie::Zombie(int _col, int _row) : Human(_col, _row) {
 }
+
+bool Zombie::isLegalMove(char moveChar) {
+    return moveChar == 'H' || moveChar == ' ';
+}

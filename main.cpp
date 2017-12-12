@@ -30,11 +30,11 @@ int main() {
         cout << "Day " << day++ << endl;
         world.drawGrid();
         if(world.gameOver()) {
-            cout << "GAME OVER. ALL HUMANS ARE DEAD." << endl;
+            cout << "GAME OVER!." << endl;
             exit(0);
         }
         cout << "Press Enter to Continue. Type 'q' and Press Enter to Quit" << endl;
-        world.update(false);
+        world.update(true);
     }
 
     return 0;
